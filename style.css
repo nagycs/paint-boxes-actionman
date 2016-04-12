@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+header{
+	width: 400px;
+	height: auto;
+	margin: auto;
+	margin-top: 20px;
+	text-align: center;
+}
+.man{
+	background-size: cover;
+	background-image: url(homer.jpg);
+}
+header p{
+	margin: 5px;
+}
+header .first{
+	font-size: 30px;
+}
+header .second{
+	font-size: 20px;
+}
+#table{
+	width: 280px;
+	height: 280px;
+	margin: auto;
+	margin-top: 40px;
+}
+table td{
+	border: 1px solid black;
+	width: 30px;
+	height: 30px;
+}
+td.black{
+	background-color:black;
+}
+.white{
+	background-color: white;
+	width: 30px;
+	height: 30px;
+}
+.red{
+	background-color: red;
+	width: 30px;
+	height: 30px;
+}
+.green{
+	background-color: green;
+	width: 30px;
+	height: 30px;
+}
+.blue{
+	background-color: blue;
+	width: 30px;
+	height: 30px;
+}
+#controls{
+	margin: auto;
+	margin-top: 20px;
+	width: 240px;
+	text-align: center;
+}
+#controls div{
+	display: inline-table;
+	margin: 20px;
+}
+#saveload{
+	margin: auto;
+	width: 240px;
+	text-align: center;
+}
+#saveload button{
+	float: left;
+	margin: 20px;
+	width: 80px;
+	height: 40px;
+	background-color: lightgrey;
+	border: 1px solid darkgrey;
+	text-transform: uppercase;
+}
