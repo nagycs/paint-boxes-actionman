@@ -182,6 +182,7 @@ function stepDown(){
 	}
 }
 
+//if Homer gets into the last cell
 function checkWin(){
 	if($posx==7 && $posy==7){
 		alert('You win!');
