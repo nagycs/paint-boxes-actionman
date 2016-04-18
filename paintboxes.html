@@ -12,8 +12,7 @@
 <body>
 <header>
 <p class="first">Welcome!</p>
-<p class="second">Be creative.</p>
-<p>You can play amoebae.</p>
+<p class="second">Find the way out!</p>
 </header>
 
 <div id="table"></div>
@@ -23,4 +22,9 @@
 <div id="saveload"></div>
 
 </body>
+<script>
+$( "body" ).keypress(function( event ) {
+	step(event.keyCode);
+});
+</script>
 </html>

@@ -14,7 +14,8 @@ function createTable(selector){
 			$tr.append(
 				$('<td id="'+i+''+j+'" class="white">').click(
 					function(event){
-						$(this).toggleClass($bgcolor);
+						//$(this).toggleClass($bgcolor);
+						$(this).attr('class',$bgcolor);
 					}
 				)
 			);
@@ -46,7 +47,8 @@ function createControls(selector){
 		);
 
 
-
+//buttons to step towards
+/*
 	$right = $('<button class="right">RIGHT</button>').click(
 			function(event){
 				//localStorage.setItem("color","blue");
@@ -74,16 +76,17 @@ function createControls(selector){
 				step(3);
 			}
 		);
-
+*/
 	
 	$controls.append($red);
 	$controls.append($green);
 	$controls.append($blue);
-
+/*
 	$controls.append($left);
 	$controls.append($right);
 	$controls.append($up);
 	$controls.append($down);
+*/
 }
 
 function save(){
@@ -127,76 +130,83 @@ function crateMan(){
 	actual.addClass('man');
 }
 
+function checkSteppable($posx,$posy){
+	var cell = $("#" + $posx + "" + $posy).attr('class');
+	if(cell == "white"){
+		return 0;
+	}
+	return 1;
+}
+
 function stepLeft(){
-	if($posy>0){
+	var r = checkSteppable($posx,$posy-1);
+	if(($posy>0) && (r == 0)){
 		var act = $("#"+ $posx + $posy);
 		act.removeClass('man');
 		$posy--;
 		act = $("#"+ $posx + $posy);
 		act.addClass('man');
-	}else{
-		alert('DOH!!!');
 	}
 }
 
 function stepRight(){
-	 if($posy<7){
+	var r = checkSteppable($posx,$posy+1);
+	if(($posy<7) && (r == 0)){
 	 	var act = $("#"+ $posx + $posy);
 		act.removeClass('man');
 		$posy++;
 		act = $("#"+ $posx + $posy);
 		act.addClass('man');
-	}else{
-		alert('DOH!!!');
 	}
 }
 
 function stepUp(){
-	 if($posx>0){
+	var r = checkSteppable($posx-1,$posy);
+	if(($posx>0) && (r == 0)){
 	 	var act = $("#"+ $posx + $posy);
 		act.removeClass('man');
 		$posx--;
 		act = $("#"+ $posx + $posy);
 		act.addClass('man');
-	}else{
-		alert('DOH!!!');
 	}
 }
 
 function stepDown(){
-	 if($posx<7){
+	var r = checkSteppable($posx+1,$posy);
+	if(($posx<7) && (r == 0)){
 	 	var act = $("#"+ $posx + $posy);
 		act.removeClass('man');
 		$posx++;
 		act = $("#"+ $posx + $posy);
 		act.addClass('man');
-	}else{
-		alert('DOH!!!');
+	}
+}
+
+function checkWin(){
+	if($posx==7 && $posy==7){
+		alert('You win!');
 	}
 }
 
 function step($step){
 	switch($step){
-		case 0: stepLeft();
+		case 37: stepLeft();
 			break;
 
-		case 1: 
+		case 39: 
 			stepRight();
 			break;
 
-		case 2: 
+		case 38: 
 			stepUp();
 			break;
 
-		case 3: 
+		case 40: 
 			stepDown()
 			break;
 		default: break;
 	}
-
-
-
-
+	checkWin();
 }
 
 window.onload = function(){
